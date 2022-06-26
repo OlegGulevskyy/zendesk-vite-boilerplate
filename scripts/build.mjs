@@ -17,8 +17,8 @@ build({
   cwd: "packages/zendesk",
 });
 
-// build({
-//   pkg: '@app/www',
-//   cmd: 'yarn build',
-//   cwd: 'packages/www',
-// })
+build({
+  pkg: "@app/www",
+  cmd: "yarn build",
+  cwd: "packages/www",
+});
