@@ -1,4 +1,4 @@
-import * as cp from 'child_process'
+import * as cp from "child_process";
 
 function build({ pkg, cmd, cwd }) {
   console.log();
@@ -12,7 +12,13 @@ function build({ pkg, cmd, cwd }) {
 }
 
 build({
-  pkg: "@app/www",
-  cmd: `yarn build`,
-  cwd: "packages/www",
+  pkg: "@app/zendesk",
+  cmd: "yarn build",
+  cwd: "packages/zendesk",
 });
+
+// build({
+//   pkg: '@app/www',
+//   cmd: 'yarn build',
+//   cwd: 'packages/www',
+// })
