@@ -11,14 +11,14 @@ function build({ pkg, cmd, cwd }) {
   });
 }
 
-build({
-  pkg: "@app/zendesk",
-  cmd: "yarn build",
-  cwd: "packages/zendesk",
-});
+// build({
+//   pkg: "@app/zendesk",
+//   cmd: "yarn build",
+//   cwd: "packages/zendesk",
+// });
 
 build({
-  pkg: "@app/www",
+  pkg: "@app/sidebar",
   cmd: "yarn build",
-  cwd: "packages/www",
+  cwd: "packages/sidebar",
 });
