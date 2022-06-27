@@ -19,6 +19,6 @@ function build({ pkg, cmd, cwd }) {
 
 build({
   pkg: "@app/sidebar",
-  cmd: "yarn build",
+  cmd: "ADDON_TYPE=sidebar yarn build",
   cwd: "packages/sidebar",
 });
