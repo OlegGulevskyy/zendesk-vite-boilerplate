@@ -1,5 +1,5 @@
 {
-  "name": "@app/www",
+  "name": "@app/sidebar",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -12,6 +12,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@types/node": "^18.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
