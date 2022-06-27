@@ -12,10 +12,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node scripts/build.mjs",
-    "start": "zcli apps:server dist"
+    "start:zcli": "node scripts/build.mjs local && zcli apps:server dist",
+		"start:react": "node scripts/run.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.1",
+  "devDependencies": {
+    "minimist": "^1.2.6"
+  }
 }
