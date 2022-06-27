@@ -1,17 +1,18 @@
 {
-	"private": true,
+  "private": true,
   "name": "zendesk-vite-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate workspace for Zendesk apps",
   "main": "index.js",
-	"workspaces": {
-  	"packages": [
-    	"packages/*"
+  "workspaces": {
+    "packages": [
+      "packages/*"
     ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "start": "zcli apps:server dist"
   },
   "keywords": [],
   "author": "",
