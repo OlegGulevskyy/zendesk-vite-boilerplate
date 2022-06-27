@@ -1,23 +1,25 @@
-import { useState } from "react";
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import zafClient from "@app/zendesk/sdk";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [assignee, setAssignee] = React.useState("");
+
+  const setTicketAssignee = async () => {
+    const { ticket } = await zafClient.get("ticket");
+    setAssignee(ticket.assignee.user.name || "Someone awesome!");
+  };
+
+  React.useEffect(() => {
+    setTicketAssignee();
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Hello edited text <code>App.tsx</code> and save to test HMR updates.
-        </p>
+        <p>Hello {assignee}!</p>
         <p>
           <a
             className="App-link"
