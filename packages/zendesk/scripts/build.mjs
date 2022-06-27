@@ -14,6 +14,7 @@ const copyFile = (fileName) => {
 
 const build = () => {
   fs.ensureDirSync(destinationDir);
+	fs.emptyDir(destinationDir)
 
   fs.readdir(currentDir, (err, files) => {
     if (err) {
