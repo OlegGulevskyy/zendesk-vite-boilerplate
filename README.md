@@ -161,15 +161,15 @@ export default defineConfig({
 
 # Structure
 
-`scripts` - logic responsible for executing building scripts / running local server
-`packages` - applications and Zendesk related source files
-&nbsp; &nbsp; ⮑ `zendesk` - includes everything related to what Zendesk expects you to provide
-&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `sdk` - reusable ZAF client that you will use to interact with ZAF APIs
-&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `scripts` - logic responsible for building Zendesk related files, such as `manifest.json`
-&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `vite-plugin-inject-zaf-html` - Vite plugin for injecting automatically ZAF CDN script
-&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `translations` - will be simply copied to `/dist` folder
-&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `assets` - logos and things, that Zendesk expects every app to have
-&nbsp; &nbsp; ⮑ `ticket_sidebar` - Boilerplate of an application for ticket sidebar using React
+`scripts` - logic responsible for executing building scripts / running local server <br>
+`packages` - applications and Zendesk related source files <br>
+&nbsp; &nbsp; ⮑ `zendesk` - includes everything related to what Zendesk expects you to provide <br>
+&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `sdk` - reusable ZAF client that you will use to interact with ZAF APIs <br>
+&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `scripts` - logic responsible for building Zendesk related files, such as `manifest.json` <br>
+&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `vite-plugin-inject-zaf-html` - Vite plugin for injecting automatically ZAF CDN script <br>
+&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `translations` - will be simply copied to `/dist` folder <br>
+&nbsp; &nbsp; &nbsp; &nbsp; ⮑ `assets` - logos and things, that Zendesk expects every app to have <br>
+&nbsp; &nbsp; ⮑ `ticket_sidebar` - Boilerplate of an application for ticket sidebar using React <br>
 `ticket_sidebar` is an example, it does not have to be included in your application. List of allowed applications is [here](https://developer.zendesk.com/api-reference/apps/apps-support-api/all_locations/), as well as in the comment of script [here](https://github.com/OlegGulevskyy/zendesk-vite-boilerplate/blob/02b74dd1f87dcb1f2249f534425c5813d740d993/scripts/build.mjs#L20) .
 
 ## Roadmap
