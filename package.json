@@ -10,7 +10,7 @@
     ]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "open": "open https://d3v5878-he.zendesk.com/agent/tickets/1?zcli_apps=true",
     "build": "node scripts/build.mjs prod ticket_sidebar nav_bar",
     "start:zcli": "node scripts/build.mjs local ticket_sidebar nav_bar && zcli apps:server dist",
     "start:ticket_sidebar": "node scripts/run.mjs ticket_sidebar",
