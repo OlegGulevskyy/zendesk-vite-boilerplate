@@ -1,22 +1,49 @@
-import minimist from 'minimist'
-import { run } from './util.mjs'
+import minimist from "minimist";
+import { run } from "./util.mjs";
 
 const {
-  _: [env],
+  _: [env, ...restArgs],
 } = minimist(process.argv.slice(2));
+
+// list of applications to build
+const restArgsStr = restArgs.join(" ");
 
 run({
   pkg: "@app/zendesk",
-  cmd: `ENV=${env} yarn build`,
+  cmd: `ENV=${env} APPS='${restArgsStr}' yarn build`,
   cwd: "packages/zendesk",
 });
 
-// only build react files if build command is not for local development
-// if current environment is local - just power up
-if (env !== 'local') {
-	run({
-		pkg: "@app/sidebar",
-		cmd: "ADDON_TYPE=sidebar yarn build",
-		cwd: "packages/sidebar",
-	});
+// only build app content files if build command is not for local development
+// if current environment is local - just power up each application as needed manually
+if (env !== "local") {
+  const allowedApps = [
+    "ticket_sidebar",
+    "new_ticket_sidebar",
+    "organization_sidebar",
+    "user_sidebar",
+    "top_bar",
+    "nav_bar",
+    "modal",
+    "ticket_editor",
+    "background",
+  ];
+
+  for (const appLocation of restArgs) {
+    if (!allowedApps.includes(appLocation)) {
+      console.error(
+        `Unknown app location.
+				Check package.json for list of arguments supplied to build script. 
+				See allowedApps for list of allowed apps`
+      );
+
+      continue;
+    }
+
+    run({
+      pkg: `@app/${appLocation}`,
+      cmd: `ADDON_TYPE=${appLocation} yarn build`,
+      cwd: `packages/${appLocation}`,
+    });
+  }
 }

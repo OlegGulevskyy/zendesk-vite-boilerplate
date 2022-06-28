@@ -10,10 +10,12 @@
     ]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node scripts/build.mjs",
-    "start:zcli": "node scripts/build.mjs local && zcli apps:server dist",
-		"start:react": "node scripts/run.mjs"
+    "open": "open https://d3v5878-he.zendesk.com/agent/tickets/1?zcli_apps=true",
+    "build": "node scripts/build.mjs prod ticket_sidebar nav_bar",
+    "zcli:package": "zcli apps:package dist",
+    "zcli:start": "node scripts/build.mjs local ticket_sidebar nav_bar && zcli apps:server dist",
+    "ticket_sidebar:start": "node scripts/run.mjs ticket_sidebar",
+    "nav_bar:start": "node scripts/run.mjs nav_bar"
   },
   "keywords": [],
   "author": "",
