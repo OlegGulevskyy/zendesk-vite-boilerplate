@@ -1,7 +1,12 @@
-import { run } from './util.mjs'
+import minimist from "minimist";
+import { run } from "./util.mjs";
+
+const {
+  _: [app],
+} = minimist(process.argv.slice(2));
 
 run({
-	pkg: '@app/sidebar',
-	cmd: 'yarn dev',
-	cwd: 'packages/sidebar'
-})
+  pkg: `@app/${app}`,
+  cmd: "yarn dev",
+  cwd: `packages/${app}`,
+});
