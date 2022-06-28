@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
     "typeRoots": ["./@types"],
-	"declaration": true
   }
 }
