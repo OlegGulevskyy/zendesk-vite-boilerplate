@@ -11,10 +11,10 @@
     "support": {
       "ticket_sidebar": {
         "url": "assets/index.html",
-				"size": {
-					"height": "500px",
-					"width": "340px"
-				},
+        "size": {
+          "height": "500px",
+          "width": "340px"
+        },
         "flexible": true
       }
     }
