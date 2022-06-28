@@ -11,9 +11,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node scripts/build.mjs",
-    "start:zcli": "node scripts/build.mjs local && zcli apps:server dist",
-		"start:react": "node scripts/run.mjs"
+    "build": "node scripts/build.mjs prod ticket_sidebar nav_bar",
+    "start:zcli": "node scripts/build.mjs local ticket_sidebar nav_bar && zcli apps:server dist",
+    "start:sidebar": "node scripts/run.mjs"
   },
   "keywords": [],
   "author": "",
