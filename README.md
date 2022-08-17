@@ -182,5 +182,8 @@ Let me know if you think there is should be something else.
 ## Issues / Contribution
 
 If you do have an issue / question / problem - do not hesitate to raise an issue.
+Alternatively, you are welcome to join Zendesk community that is being put together, where you can ask any questions you would like:
+https://discord.gg/EHVRdSVDc4
+
 I am planning to update this repository more I use and create Zendesk apps. I am using it for my own needs to start faster on some of the freelance projects.
 If you feel like you need further help or my services in developing Zendesk application - feel free to shot an email - oleggulevskyy@gmail.com
