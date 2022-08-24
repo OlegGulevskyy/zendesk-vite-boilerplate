@@ -1,19 +1,20 @@
 // The ZAFClient is injected in the index.html file when built / served.
 // See docs for help regarding the ZAFClient: https://developer.zendesk.com/apps/docs/developer-guide/getting_started
 
-interface IMetadata {
+interface IMetadata<T> {
   appId: number;
   installationId: number;
   name: string;
   plan: {
     name: string;
   };
+	settings?: T
 }
 
 interface IClient {
   invoke: (cmd: string, arg: any) => void;
   get: (getter: string) => any;
-  metadata: () => IMetadata;
+  metadata: <U>() => IMetadata<U>;
   request: <U>(data: Object) => Promise<U>;
   on: (eventName: string, listener: (...args: any) => any) => void;
 }
