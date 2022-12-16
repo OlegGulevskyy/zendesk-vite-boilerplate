@@ -10,7 +10,7 @@
   "location": {
     "support": {
       "ticket_sidebar": {
-        "url": "assets/index.html",
+        "url": "assets/ticket_sidebar/index.html",
         "size": {
           "height": "500px",
           "width": "340px"
