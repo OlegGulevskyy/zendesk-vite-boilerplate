@@ -3,7 +3,6 @@ import fs from "fs-extra";
 const currentDir = process.cwd();
 const destinationDir = process.env.INIT_CWD + "/dist";
 const env = process.env.ENV;
-const apps = process.env.APPS && process.env.APPS.split(" ");
 const COPY_LIST = ["assets", "translations", "manifest.json"];
 
 const shouldBeCopied = (fileName) => COPY_LIST.includes(fileName);
@@ -14,21 +13,48 @@ const copyFile = (fileName) => {
   fs.copySync(currPath, distPath);
 };
 
+/**
+ * Remove all the properties from manifest that are not needed for production
+ */
+const normalizeManifest = (manifest) => {
+  if (!manifest) {
+    return;
+  }
+  const manifestCopy = { ...manifest };
+  for (const key in manifestCopy.location.support) {
+    const supportApp = manifestCopy.location.support[key];
+
+    // hard coded properties for now
+    // if there are more properties in the future - prepare a smarter utility
+    delete supportApp["dev:url"];
+    delete supportApp["dev:port"];
+  }
+
+  return manifestCopy;
+};
+
+/**
+ * Prepare manifest file - if this is a local environment, serve UI files from localhost
+ * Otherwise, serve files from build folders for each respective app
+ */
 const handleManifest = (fileName) => {
   const manifest = fs.readJsonSync(fileName);
-  for (const appLocation of apps) {
-    manifest.location.support[appLocation] =
-      manifest.location.support[appLocation] || {};
-    manifest.location.support[appLocation] = {
-      ...manifest.location.support[appLocation],
+  for (const appKey in manifest.location.support) {
+    const app = manifest.location.support[appKey];
+    const devUrl = app["dev:url"] ?? "localhost";
+    const devPort = app["dev:port"] ?? "3000";
+
+    manifest.location.support[appKey] = {
+      ...manifest.location.support[appKey],
       url:
         env === "local"
-          ? "http://localhost:3000"
-          : `assets/${appLocation}/index.html`,
+          ? `http://${devUrl}:${devPort}`
+          : manifest.location.support[appKey].url,
     };
   }
 
-  fs.writeJsonSync(`${destinationDir}/${fileName}`, manifest, {
+  const cleanManifest = normalizeManifest(manifest);
+  fs.writeJsonSync(`${destinationDir}/${fileName}`, cleanManifest, {
     spaces: "\t",
   });
 };
