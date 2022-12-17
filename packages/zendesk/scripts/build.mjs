@@ -3,7 +3,12 @@ import fs from "fs-extra";
 const currentDir = process.cwd();
 const destinationDir = process.env.INIT_CWD + "/dist";
 const env = process.env.ENV;
-const COPY_LIST = ["assets", "translations", "manifest.json"];
+const COPY_LIST = [
+  "assets",
+  "translations",
+  "manifest.json",
+  "zcli.apps.config.json",
+];
 
 const shouldBeCopied = (fileName) => COPY_LIST.includes(fileName);
 
