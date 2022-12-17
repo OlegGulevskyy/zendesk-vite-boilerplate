@@ -68,6 +68,92 @@ yarn ticket_sidebar:start
 !! Use any other application names instead of `ticket_sidebar` !!
 By default this will execute `yarn dev` script in `ticket_sidebar` folder, where your framework rests.
 
+### Change dev ports
+
+There might be a case where your framework package runs on a non-standard port, i.e. - http://localhost:`3005`
+If so, you can specify dev port for your local development for each application (package) separately.
+This will allow you to run multiple packages and they will be correctly reflected in `manifest.json` file.
+To do so:
+- head over to `packages/zendesk`
+- you can add `dev:port` and `dev:url` to any application listed in the `support` listed
+For example, given the following list:
+```
+"support": {
+	"ticket_sidebar": {
+		"url": "assets/ticket_sidebar/index.html",
+		"size": {
+			"height": "500px",
+			"width": "340px"
+		},
+		"flexible": true
+	},
+	"nav_bar": {
+		"url": "assets/nav_bar/index.html",
+		"size": {
+			"height": "500px",
+			"width": "340px"
+		},
+		"flexible": true
+	}
+}
+```
+
+You can specify different URL and Port for each app like so:
+
+```
+"support": {
+	"ticket_sidebar": {
+		"url": "assets/ticket_sidebar/index.html",
+		"size": {
+			"height": "500px",
+			"width": "340px"
+		},
+		"flexible": true,
+		"dev:url": "localhost",
+		"dev:port": 3500,
+
+	},
+	"nav_bar": {
+		"url": "assets/nav_bar/index.html",
+		"size": {
+			"height": "500px",
+			"width": "340px"
+		},
+		"flexible": true,
+		"dev:url": "localhost",
+		"dev:port": 4000,
+	}
+}
+
+```
+
+This will ensure in the manifest file generated like so:
+
+```
+"support": {
+	"ticket_sidebar": {
+		"url": "http://localhost:3500",
+		"size": {
+			"height": "500px",
+			"width": "340px"
+		},
+		"flexible": true,
+	},
+	"nav_bar": {
+		"url": "http://localhost:4000",
+		"size": {
+			"height": "500px",
+			"width": "340px"
+		},
+		"flexible": true,
+	}
+}
+
+```
+
+NOTICE: properties `dev:port` and `dev:url` are automatically removed by boilerplate, as those are non-production properties of `manifest.json`, so they are cleaned up.
+
+
 ## Build for production
 
 1. Inside your project directory use build script from `package.json` file
