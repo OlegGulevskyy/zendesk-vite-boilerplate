@@ -1,12 +1,16 @@
-import { NestedPaths, TypeFromPath } from "../utilities";
-import { GettableLocations } from "./get";
+import { NestedPaths } from "../utilities";
+import { GetData, GettableLocations } from "./get";
+
+type ZendeskApiResponse<U> = U & {
+  errors: {};
+};
 
 export type ZafClient = {
   invoke: (cmd: string, arg: any) => void;
 
   get: <Path extends NestedPaths<GettableLocations>>(
     key: Path
-  ) => Promise<TypeFromPath<GettableLocations, Path>>;
+  ) => Promise<ZendeskApiResponse<GetData<Path>>>;
 
   metadata: <U>() => Metadata<U>;
   request: <U>(data: Object) => Promise<U>;
