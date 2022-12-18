@@ -2,7 +2,7 @@ import { NestedPaths } from "../utilities";
 import { GetData, GettableLocations } from "./get";
 
 type ZendeskApiResponse<U> = U & {
-  errors: {};
+  errors: {}; // need to reproduce errors somehow to property type it
 };
 
 export type ZafClient = {
