@@ -1,0 +1,48 @@
+{
+	"name": "Vite Boilerplate",
+	"author": {
+		"name": "OlegGulevskyy",
+		"email": "oleggulevskyy@gmail.com",
+		"url": "https://github.com/OlegGulevskyy/zendesk-vite-boilerplate"
+	},
+	"defaultLocale": "en",
+	"private": true,
+	"location": {
+		"support": {
+			"ticket_sidebar": {
+				"url": "assets/ticket_sidebar/index.html",
+				"size": {
+					"height": "500px",
+					"width": "340px"
+				},
+				"flexible": true
+			},
+			"organization_sidebar": {
+				"url": "assets/ticket_sidebar/index.html",
+				"size": {
+					"height": "500px",
+					"width": "340px"
+				},
+				"flexible": true
+			},
+			"new_ticket_sidebar": {
+				"url": "assets/ticket_sidebar/index.html",
+				"size": {
+					"height": "500px",
+					"width": "340px"
+				},
+				"flexible": true,
+				"dev:url": "localhost",
+				"dev:port": "3000"
+			},
+			"nav_bar": {
+				"url": "assets/nav_bar/index.html",
+				"dev:url": "localhost",
+				"dev:port": "3001"
+			}
+		}
+	},
+	"version": "1.0.0",
+	"frameworkVersion": "2.0"
+}
+
