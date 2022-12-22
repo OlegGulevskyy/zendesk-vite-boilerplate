@@ -10,7 +10,7 @@
   "location": {
     "support": {
       "ticket_sidebar": {
-        "url": "https://frontend-production-bc15.up.railway.app",
+        "url": "assets/ticket_sidebar/index.html",
         "size": {
           "height": "500px",
           "width": "340px"
