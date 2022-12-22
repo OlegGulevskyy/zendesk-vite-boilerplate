@@ -1,4 +1,5 @@
 import minimist from "minimist";
+import { parseConfig } from "../packages/zendesk/scripts/config.mjs";
 import { run } from "./util.mjs";
 
 const {
@@ -39,6 +40,15 @@ if (env !== "local") {
 
       continue;
     }
+
+		// do not build / copy server side apps
+		// if it's a nextjs or nuxtjs app, they should be deployed to a separate domain
+		// and not bundled with the app
+		// in this case - we only care about copying manifest file and it's already done
+		const appConfig = parseConfig(`packages/${appLocation}/zaf.config.json`);
+		if (appConfig && appConfig.server_side) {
+			continue
+		}
 
     run({
       pkg: `@app/${appLocation}`,
