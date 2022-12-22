@@ -1,0 +1,11 @@
+{
+  "location": "ticket_sidebar",
+  "server_side": false,
+  "production_url": "assets/ticket_sidebar/index.html",
+  "dev_url": "http://localhost",
+  "dev_port": 3000,
+  "size": {
+    "height": "500px",
+    "width": "320px"
+  }
+}
