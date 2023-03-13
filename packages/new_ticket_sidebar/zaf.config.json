@@ -1,7 +1,7 @@
 {
-  "location": "new_ticket_sidebar",
-  "server_side": true,
-  "production_url": "https://frontend-production-bc15.up.railway.app",
-  "dev_url": "http://localhost",
-  "dev_port": 3000
+	"location": "new_ticket_sidebar",
+	"server_side": true,
+	"production_url": "https://frontend-production-bc15.up.railway.app",
+	"dev_url": "http://localhost",
+	"dev_port": 3000
 }
