@@ -23,7 +23,7 @@
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"../zendesk/sdk/types/*.d.ts"
+		"../../node_modules/zendesk-types/**/*.d.ts"
 	],
 	"exclude": [
 		"node_modules"
