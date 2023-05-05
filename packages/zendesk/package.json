@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "test": "npx tsd tsd_project"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "tsd": "^0.25.0"
+  },
+  "dependencies": {
+    "typescript": "^4.9.4"
   }
 }
