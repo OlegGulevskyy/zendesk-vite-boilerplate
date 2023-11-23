@@ -1,47 +1,35 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import zafClient from "@app/zendesk/sdk";
+import { createSignal } from 'solid-js'
+import solidLogo from './assets/solid.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const [assignee, setAssignee] = React.useState("");
-
-  const setTicketAssignee = async () => {
-    const { ticket } = await zafClient.get("ticket");
-    setAssignee(ticket.assignee.user.name || "Someone awesome!");
-  };
-
-  React.useEffect(() => {
-    setTicketAssignee();
-  }, []);
+  const [count, setCount] = createSignal(0)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello {assignee}!</p>
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} class="logo" alt="Vite logo" />
+        </a>
+        <a href="https://solidjs.com" target="_blank">
+          <img src={solidLogo} class="logo solid" alt="Solid logo" />
+        </a>
+      </div>
+      <h1>Vite + Solid</h1>
+      <div class="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count()}
+        </button>
         <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
+          Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-      </header>
-    </div>
-  );
+      </div>
+      <p class="read-the-docs">
+        Click on the Vite and Solid logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -3,7 +3,6 @@
   "name": "zendesk-vite-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate workspace for Zendesk apps",
-  "main": "index.js",
   "workspaces": {
     "packages": [
       "packages/*"
