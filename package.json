@@ -1,27 +1,29 @@
 {
-  "private": true,
-  "name": "zendesk-vite-boilerplate",
-  "version": "1.0.0",
-  "description": "Boilerplate workspace for Zendesk apps",
-  "main": "index.js",
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "scripts": {
-    "open": "open https://d3v5878-he.zendesk.com/agent/tickets/1?zcli_apps=true",
-    "build": "node scripts/build.mjs prod ticket_sidebar nav_bar",
-    "zcli:package": "zcli apps:package dist",
-    "zcli:start": "node scripts/build.mjs local ticket_sidebar nav_bar && zcli apps:server dist",
-    "ticket_sidebar:start": "node scripts/run.mjs ticket_sidebar",
-    "nav_bar:start": "node scripts/run.mjs nav_bar"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "yarn@3.2.1",
-  "devDependencies": {
-    "minimist": "^1.2.6"
-  }
+	"private": true,
+	"name": "zendesk-vite-boilerplate",
+	"version": "1.0.0",
+	"description": "Boilerplate workspace for Zendesk apps",
+	"main": "index.js",
+	"workspaces": {
+		"packages": [
+			"packages/*"
+		]
+	},
+	"scripts": {
+		"open": "open https://d3v5878-he.zendesk.com/agent/tickets/1?zcli_apps=true",
+		"build": "node scripts/build.mjs prod user_sidebar",
+		"zcli:package": "zcli apps:package dist",
+		"zcli:start": "node scripts/build.mjs local user_sidebar && zcli apps:server dist",
+		"my-main-app:start": "node scripts/run.mjs my-main-app"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "yarn@3.2.1",
+	"devDependencies": {
+		"minimist": "^1.2.6"
+	},
+	"dependencies": {
+		"zendesk-types": "^1.0.0"
+	}
 }

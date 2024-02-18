@@ -1,4 +1,5 @@
 import minimist from "minimist";
+import { parseConfig } from "../packages/zendesk/scripts/config.mjs";
 import { run } from "./util.mjs";
 
 const {
@@ -35,10 +36,19 @@ if (env !== "local") {
     if (!allowedApps.includes(appLocation)) {
       console.error(
         `Unknown app location.
-				Check package.json for list of arguments supplied to build script. 
-				See allowedApps for list of allowed apps`
+	Check package.json for list of arguments supplied to build script.
+	See allowedApps for list of allowed apps`,
       );
 
+      continue;
+    }
+
+    // do not build / copy server side apps
+    // if it's a nextjs or nuxtjs app, they should be deployed to a separate domain
+    // and not bundled with the app
+    // in this case - we only care about copying manifest file and it's already done
+    const appConfig = parseConfig(`packages/${appLocation}/zaf.config.json`);
+    if (appConfig && appConfig.server_side) {
       continue;
     }
 
