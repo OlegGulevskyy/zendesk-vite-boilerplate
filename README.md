@@ -231,7 +231,7 @@ cd top_bar
 import { injectZafHtmlPlugin } from "@app/zendesk/vite-plugin-inject-zaf-html";
 ```
 
-Some front-end frameworks (Vue.js, Svelte, etc) may require a different apporach to importing the plugin:
+Some front-end frameworks (Vue.js, Svelte, React, etc) may require a different apporach to importing the plugin:
 
 ```ts
 import * as pluginPkg from '@app/zendesk/vite-plugin-inject-zaf-html/index.js'
