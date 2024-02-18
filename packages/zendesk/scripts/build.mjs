@@ -4,7 +4,7 @@ import { getAllConfigs } from "./config.mjs";
 import { buildManifest, updateManifest } from "./manifest.mjs";
 
 const currentDir = process.cwd();
-const destinationDir = process.env.INIT_CWD + "/dist";
+const destinationDir = process.env.PROJECT_CWD + "/dist";
 const COPY_LIST = [
 	"assets",
 	"translations",

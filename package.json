@@ -14,9 +14,7 @@
 		"build": "node scripts/build.mjs prod user_sidebar",
 		"zcli:package": "zcli apps:package dist",
 		"zcli:start": "node scripts/build.mjs local user_sidebar && zcli apps:server dist",
-		"ticket_sidebar:start": "node scripts/run.mjs ticket_sidebar",
-		"nav_bar:start": "node scripts/run.mjs nav_bar",
-		"user_sidebar:start": "node scripts/run.mjs user_sidebar"
+		"my-main-app:start": "node scripts/run.mjs my-main-app"
 	},
 	"keywords": [],
 	"author": "",

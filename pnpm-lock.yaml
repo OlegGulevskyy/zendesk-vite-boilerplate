@@ -1,25 +1,25 @@
-lockfileVersion: 5.4
+lockfileVersion: '6.0'
 
-specifiers:
-  minimist: ^1.2.6
-  zendesk-types: ^1.0.0
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
-  zendesk-types: registry.npmjs.org/zendesk-types/1.0.0
+  zendesk-types:
+    specifier: ^1.0.0
+    version: 1.0.0
 
 devDependencies:
-  minimist: registry.npmjs.org/minimist/1.2.8
+  minimist:
+    specifier: ^1.2.6
+    version: 1.2.8
 
 packages:
 
-  registry.npmjs.org/minimist/1.2.8:
-    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz}
-    name: minimist
-    version: 1.2.8
+  /minimist@1.2.8:
+    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
 
-  registry.npmjs.org/zendesk-types/1.0.0:
-    resolution: {integrity: sha512-/ipxpZxkhyoDiOMq8fLGjfoYyUVFkepsfxbrHOml6SZHXeTClJhZqsQ5z0+HZSewTgqvphWi8IJvZfXilcmBdw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/zendesk-types/-/zendesk-types-1.0.0.tgz}
-    name: zendesk-types
-    version: 1.0.0
+  /zendesk-types@1.0.0:
+    resolution: {integrity: sha512-/ipxpZxkhyoDiOMq8fLGjfoYyUVFkepsfxbrHOml6SZHXeTClJhZqsQ5z0+HZSewTgqvphWi8IJvZfXilcmBdw==}
     dev: false
