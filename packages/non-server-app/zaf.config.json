@@ -1,0 +1,10 @@
+{
+  "location": "user_sidebar",
+  "server_side": false,
+  "dev_url": "http://localhost",
+  "production_url": "index.html",
+  "dev_port": 5173,
+  "size": {
+    "height": 400
+  }
+}
