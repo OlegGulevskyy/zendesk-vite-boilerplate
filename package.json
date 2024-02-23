@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "zendesk-vite-boilerplate",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Boilerplate workspace for Zendesk apps",
 	"main": "index.js",
 	"workspaces": {
@@ -11,9 +11,10 @@
 	},
 	"scripts": {
 		"open": "open https://d3v5878-he.zendesk.com/agent/tickets/1?zcli_apps=true",
-		"build": "node scripts/build.mjs prod user_sidebar",
+		"build": "node scripts/build.mjs prod my-main-app non-server-app",
 		"zcli:package": "zcli apps:package dist",
-		"zcli:start": "node scripts/build.mjs local user_sidebar && zcli apps:server dist",
+		"zcli:start": "node scripts/build.mjs local && zcli apps:server dist",
+		"non-server-app:start": "node scripts/run.mjs non-server-app",
 		"my-main-app:start": "node scripts/run.mjs my-main-app"
 	},
 	"keywords": [],
