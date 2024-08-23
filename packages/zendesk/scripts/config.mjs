@@ -28,3 +28,16 @@ export const getAllConfigs = (packagesPath) => {
   });
   return configs.filter((c) => c.cfg !== null);
 };
+
+// If this function returns incorrect path,
+// speicfy your own way to the boilerplate root folder
+export const getProjectRootDir = () => {
+  const initDir = process.env.INIT_CWD;
+  if (initDir) {
+    return initDir;
+  }
+  const projectCwd = process.env.PROJECT_CWD;
+  if (projectCwd) {
+    return projectCwd;
+  }
+};

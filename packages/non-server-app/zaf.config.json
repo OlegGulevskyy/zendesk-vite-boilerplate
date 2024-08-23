@@ -1,5 +1,5 @@
 {
-  "location": "user_sidebar",
+  "location": "modal",
   "server_side": false,
   "dev_url": "http://localhost",
   "production_url": "index.html",

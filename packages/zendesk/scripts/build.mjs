@@ -1,10 +1,11 @@
 import fs from "fs-extra";
 import path from "path";
-import { getAllConfigs } from "./config.mjs";
+import { getAllConfigs, getProjectRootDir } from "./config.mjs";
 import { buildManifest, updateManifest } from "./manifest.mjs";
 
 const currentDir = process.cwd();
-const destinationDir = process.env.PROJECT_CWD + "/dist";
+const destinationDir = getProjectRootDir() + "/dist";
+
 const COPY_LIST = [
 	"assets",
 	"translations",
