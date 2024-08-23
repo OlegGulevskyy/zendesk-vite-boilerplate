@@ -17,8 +17,8 @@ const allowedApps = [
 
 const isPackagedAllowed = (pkg) => allowedApps.includes(pkg);
 
-const warnUnallowedPackage = () => {
-  console.error("Package app is not recognised as a valid app", cfg.location);
+const warnUnallowedPackage = (location) => {
+  console.error("Package app is not recognised as a valid app", location);
   console.error(
     "Please, check your zaf.config.json file if property 'location' is set correctly",
   );
@@ -37,25 +37,32 @@ export const buildManifest = (fileName, configs) => {
   for (const { appName, cfg } of configs) {
     console.log("Building manifest for app: ", appName);
     console.log("Config: ", cfg);
-    if (!isPackagedAllowed(cfg.location)) {
-      warnUnallowedPackage();
-      continue;
-    }
+    const locations = cfg.locations ?? [cfg];
 
-    const devUrl = cfg.dev_url ?? "localhost";
-    const devPort = cfg.dev_port ?? "3000";
-    const appUrl = isDev ? `${devUrl}:${devPort}` : cfg.production_url;
+    for (const locationConfig of locations) {
+      const { dev_url, dev_port, production_url, server_side, size, location } =
+        locationConfig;
 
-    manifest.location.support[cfg.location] = {
-      url: cfg.server_side
-        ? appUrl
-        : isDev
+      if (!isPackagedAllowed(location)) {
+        warnUnallowedPackage();
+        continue;
+      }
+
+      const devUrl = dev_url ?? "localhost";
+      const devPort = dev_port ?? "3000";
+      const appUrl = isDev ? `${devUrl}:${devPort}` : production_url;
+
+      manifest.location.support[location] = {
+        url: server_side
           ? appUrl
-          : `assets/${appName}/${appUrl}`,
-    };
+          : isDev
+            ? appUrl
+            : `assets/${appName}/${appUrl}`,
+      };
 
-    if (cfg.size) {
-      manifest.location.support[cfg.location].size = cfg.size;
+      if (size) {
+        manifest.location.support[location].size = size;
+      }
     }
   }
 
