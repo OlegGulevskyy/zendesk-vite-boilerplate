@@ -1,10 +1,25 @@
 {
-  "location": "modal",
-  "server_side": false,
-  "dev_url": "http://localhost",
-  "production_url": "index.html",
-  "dev_port": 5173,
-  "size": {
-    "height": 400
-  }
+  "locations": [
+    {
+      "location": "ticket_sidebar",
+      "server_side": true,
+      "production_url": "https://frontend-production-bc15.up.railway.app",
+      "dev_url": "http://localhost",
+      "dev_port": 5173,
+      "size": {
+        "height": 400,
+        "width": "100%"
+      }
+    },
+    {
+      "location": "nav_bar",
+      "server_side": true,
+      "production_url": "https://frontend-production-bc15.up.railway.app",
+      "dev_url": "http://localhost",
+      "dev_port": 5173,
+      "size": {
+        "width": "100%"
+      }
+    }
+  ]
 }
